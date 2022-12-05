@@ -1,5 +1,6 @@
 package AplicaDescontos;
 
+import Common.Desconto;
 import Common.Pedido;
 
 public class AplicadorDeDescontos {

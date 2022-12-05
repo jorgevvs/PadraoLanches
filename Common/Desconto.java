@@ -1,6 +1,4 @@
-package AplicaDescontos;
-
-import Common.Pedido;
+package Common;
 
 public interface Desconto {
     double Desconta(Pedido pedido);

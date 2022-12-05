@@ -1,8 +1,9 @@
 package AplicaDescontos;
 
+import Common.Desconto;
 import Common.Pedido;
 
-public class DescontoCincoItens implements Desconto{
+public class DescontoCincoItens implements Desconto {
     public Desconto Proximo;
 
     public Desconto getProximo() {
