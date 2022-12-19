@@ -1,4 +1,4 @@
-package AplicaDescontos;
+package Aplicação.AplicaDescontos;
 
 import Common.Desconto;
 import Common.Pedido;
@@ -18,7 +18,7 @@ public class DescontoCincoItens implements Desconto {
     {
         if(pedido.Ingredientes.size() > 5)
         {
-            return pedido.valor * 0.1;
+            return pedido.Valor * 0.1;
         }
 
         return Proximo.Desconta(pedido);

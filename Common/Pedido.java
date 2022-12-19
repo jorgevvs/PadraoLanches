@@ -1,32 +1,43 @@
 package Common;
 
-import AplicaDescontos.AplicadorDeDescontos;
-import Common.Ingrediente;
+import Aplicação.AplicaDescontos.AplicadorDeDescontos;
 
 import java.util.List;
-import EstadosPedido.Estado;
+import Aplicação.Estados.EstadosPedido.Estado;
 
 public class Pedido {
-    public Double valor;
+    public Double Valor;
     public List<Ingrediente> Ingredientes;
     public Estado Estado;
     public boolean descontoFoiAplicado = false;
 
+    public String Observacoes;
+
+    public Pedido(double valor, List<Ingrediente> lista, Estado estado, boolean desconto, String observacoes)
+    {
+        Valor = valor;
+        Estado = estado;
+        Ingredientes = lista;
+        descontoFoiAplicado = desconto;
+        Observacoes = observacoes;
+    }
+
+
     public void aplicaDesconto(){
         descontoFoiAplicado = true;
         AplicadorDeDescontos aplicador = new AplicadorDeDescontos();
-        this.valor = aplicador.DevolveDesconto(this);
+        this.Valor = aplicador.DevolveDesconto(this);
     }
 
     public boolean getDescontoFoiAplicado(){
         return descontoFoiAplicado;
     }
 
-    public void setEstado(EstadosPedido.Estado estado) {
+    public void setEstado(Aplicação.Estados.EstadosPedido.Estado estado) {
         Estado = estado;
     }
 
-    public EstadosPedido.Estado getEstado() {
+    public Aplicação.Estados.EstadosPedido.Estado getEstado() {
         return Estado;
     }
 
@@ -35,6 +46,26 @@ public class Pedido {
     }
 
     public Double getValor() {
-        return valor;
+        return Valor;
+    }
+
+    public String getObservacoes() {
+        return Observacoes;
+    }
+
+    public void setValor(Double valor) {
+        this.Valor = valor;
+    }
+
+    public void setDescontoFoiAplicado(boolean descontoFoiAplicado) {
+        this.descontoFoiAplicado = descontoFoiAplicado;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        Ingredientes = ingredientes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        Observacoes = observacoes;
     }
 }

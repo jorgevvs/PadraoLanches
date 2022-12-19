@@ -1,4 +1,4 @@
-package AplicaDescontos;
+package Aplicação.AplicaDescontos;
 
 import Common.Desconto;
 import Common.Pedido;
@@ -16,9 +16,9 @@ public class DescontoValorMaiorCinquenta implements Desconto {
 
     public double Desconta(Pedido pedido)
     {
-        if(pedido.valor > 50)
+        if(pedido.Valor > 50)
         {
-            return pedido.valor * 0.07;
+            return pedido.Valor * 0.07;
         }
         else
         {

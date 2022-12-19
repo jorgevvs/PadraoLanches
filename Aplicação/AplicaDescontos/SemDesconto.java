@@ -1,4 +1,4 @@
-package AplicaDescontos;
+package Aplicação.AplicaDescontos;
 
 import Common.Desconto;
 import Common.Pedido;

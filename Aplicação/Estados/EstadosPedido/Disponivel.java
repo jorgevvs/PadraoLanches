@@ -1,4 +1,4 @@
-package EstadosPedido;
+package Aplicação.Estados.EstadosPedido;
 
 import Common.Pedido;
 
