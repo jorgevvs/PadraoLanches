@@ -3,6 +3,11 @@ package Common;
 public class Ingrediente {
     public String Nome;
     public Double Valor;
+
+    public Ingrediente(String nome, Double valor){
+        Nome = nome;
+        Valor = valor;
+    }
     public Double getValor() {
         return Valor;
     }
