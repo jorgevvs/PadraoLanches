@@ -1,12 +1,28 @@
 package Aplicação;
 
 import Aplicação.Builders.PedidoBuilder;
+import Aplicação.Estados.EstadosPedido.Disponivel;
+import Common.Ingrediente;
+import Common.Pedido;
 
 import java.util.Scanner;
 
 public class main {
-    public static void main(String[] args) {
-        MenuPrincipal();
+    public static void main(String[] args) throws Exception {
+        PedidoBuilder builder = PedidoBuilder.getInstancia();
+        Pedido pedido = builder.comIngrediente(new Ingrediente("", 1.0))
+                .comObservacoes("")
+                .Finaliza();
+
+        pedido.getEstado().Produzir(pedido);
+        System.out.println(pedido.getEstado());
+        pedido.getEstado().Finalizar(pedido);
+        System.out.println(pedido.getEstado());
+        pedido.getEstado().Cancelar(pedido);
+        System.out.println(pedido.getEstado());
+
+        System.out.println(pedido.Valor);
+
     }
     public static void MenuPrincipal(){
         Scanner in = new Scanner(System.in);
@@ -25,7 +41,6 @@ public class main {
 
 
     public static void NovoPedido(){
-        PedidoBuilder CriadorDePedido = new PedidoBuilder();
 
     }
 

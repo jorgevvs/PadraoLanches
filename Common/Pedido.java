@@ -3,20 +3,23 @@ package Common;
 import Aplicação.AplicaDescontos.AplicadorDeDescontos;
 
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+
+import Aplicação.Estados.EstadosPedido.Disponivel;
 import Aplicação.Estados.EstadosPedido.Estado;
 
-public class Pedido {
+public class Pedido extends Observable {
     public Double Valor;
     public List<Ingrediente> Ingredientes;
-    public Estado Estado;
+    public Estado Estado = new Disponivel();
     public boolean descontoFoiAplicado = false;
 
     public String Observacoes;
 
-    public Pedido(double valor, List<Ingrediente> lista, Estado estado, boolean desconto, String observacoes)
+    public Pedido(double valor, List<Ingrediente> lista, boolean desconto, String observacoes)
     {
         Valor = valor;
-        Estado = estado;
         Ingredientes = lista;
         descontoFoiAplicado = desconto;
         Observacoes = observacoes;
@@ -37,7 +40,7 @@ public class Pedido {
         Estado = estado;
     }
 
-    public Aplicação.Estados.EstadosPedido.Estado getEstado() {
+    public Estado getEstado() {
         return Estado;
     }
 
@@ -68,4 +71,23 @@ public class Pedido {
     public void setObservacoes(String observacoes) {
         Observacoes = observacoes;
     }
+
+    public void update(Observable o, Object arg) {
+        Estado estadoObservado = (Estado)o;
+        String acao = String.valueOf(arg);
+
+        if(acao.equals("Aplica")){
+            System.out.println("O pedido teve um desconto aplicado.");
+        }
+        else if(acao.equals("Produz")){
+            System.out.println("O pedido esta em producao.");
+        }
+        else if(acao.equals("Cancela")){
+            System.out.println("O pedido foi cancelado.");
+        }
+        else if(acao.equals("Finaliza")){
+            System.out.println("O pedido finalizou.");
+        }
+    }
+
 }
