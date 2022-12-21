@@ -3,7 +3,7 @@ package Aplicação.AplicaDescontos;
 import Common.Desconto;
 import Common.Pedido;
 
-public class DescontoValorMaiorCinquenta implements Desconto {
+public class DescontoValorMaiorVinte implements Desconto {
     public Desconto Proximo;
 
     public Desconto getProximo() {
@@ -16,7 +16,7 @@ public class DescontoValorMaiorCinquenta implements Desconto {
 
     public double Desconta(Pedido pedido)
     {
-        if(pedido.Valor > 50)
+        if(pedido.Valor > 20.0)
         {
             return pedido.Valor * 0.07;
         }

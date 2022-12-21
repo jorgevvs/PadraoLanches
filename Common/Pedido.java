@@ -15,6 +15,8 @@ public class Pedido extends Observable {
     public Estado Estado = new Disponivel();
     public boolean descontoFoiAplicado = false;
 
+    public double Desconto= 0.0;
+
     public String Observacoes;
 
     public Pedido(double valor, List<Ingrediente> lista, boolean desconto, String observacoes)
@@ -29,7 +31,8 @@ public class Pedido extends Observable {
     public void aplicaDesconto(){
         descontoFoiAplicado = true;
         AplicadorDeDescontos aplicador = new AplicadorDeDescontos();
-        this.Valor = aplicador.DevolveDesconto(this);
+        this.Desconto = aplicador.DevolveDesconto(this);
+        this.Valor = Valor-Desconto;
     }
 
     public boolean getDescontoFoiAplicado(){
@@ -88,6 +91,10 @@ public class Pedido extends Observable {
         else if(acao.equals("Finaliza")){
             System.out.println("O pedido finalizou.");
         }
+    }
+
+    public double getDesconto() {
+        return Desconto;
     }
 
 }

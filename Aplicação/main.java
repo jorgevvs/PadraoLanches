@@ -1,15 +1,15 @@
 package Aplicação;
 
-import Aplicação.Builders.PedidoBuilder;
 import Common.Ingrediente;
-import java.util.ArrayList;
+import Common.Pedido;
+
 import java.util.List;
-import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws Exception {
-        List<Ingrediente> EstoqueDisponivel = MenuPrincipal.AbastecerEstoque();
-        MenuPrincipal.MenuPrincipal(EstoqueDisponivel);
+        List<Ingrediente> EstoqueDisponivel = MenuPrincipalFacade.AbastecerEstoque();
+        Pedido result = MenuPrincipalFacade.MenuPrincipal(EstoqueDisponivel);
+        MenuPrincipalFacade.ImprimirNota(result);
         System.out.print("Obrigado e Volte Sempre!");
     }
 }

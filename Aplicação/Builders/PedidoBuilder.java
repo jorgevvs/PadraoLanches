@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PedidoBuilder {
-    public Double valor = 0.0;
+    public Double valor = 10.0;
     public List<Ingrediente> Ingredientes = new ArrayList<>() {
     };
     public Estado Estado = new Disponivel() {

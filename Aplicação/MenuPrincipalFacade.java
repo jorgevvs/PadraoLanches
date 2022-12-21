@@ -2,14 +2,15 @@ package Aplicação;
 
 import Aplicação.Builders.PedidoBuilder;
 import Common.Ingrediente;
+import Common.NotaFiscalPrinter;
 import Common.Pedido;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MenuPrincipal {
-    public static void MenuPrincipal(List<Ingrediente> estoque) throws Exception {
+public class MenuPrincipalFacade {
+    public static Pedido MenuPrincipal(List<Ingrediente> estoque) throws Exception {
         Scanner in = new Scanner(System.in);
         System.out.println("========== Padrão Lanches ==========");
         System.out.println("Gostaria de realizar um novo pedido?");
@@ -22,10 +23,13 @@ public class MenuPrincipal {
         if(resposta == 1){
             Pedido criado = NovoPedido(estoque);
             Thread.sleep(5000);
+            criado.aplicaDesconto();
             criado.getEstado().Produzir(criado);
             Thread.sleep(5000);
             criado.getEstado().Finalizar(criado);
+            return criado;
         }
+        return null;
     }
 
     public static Pedido NovoPedido(List<Ingrediente> estoque){
@@ -146,5 +150,8 @@ public class MenuPrincipal {
         return ingredientes;
     }
 
-
+    public static void ImprimirNota(Pedido pedido){
+        NotaFiscalPrinter notaFiscalPrinter = new NotaFiscalPrinter();
+        notaFiscalPrinter.ImprimirNota(pedido);
+    }
 }

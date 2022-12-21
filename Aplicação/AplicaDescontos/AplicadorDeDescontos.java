@@ -6,7 +6,7 @@ import Common.Pedido;
 public class AplicadorDeDescontos {
     public double DevolveDesconto(Pedido pedido){
         Desconto d1 = new DescontoCincoItens();
-        Desconto d2 = new DescontoValorMaiorCinquenta();
+        Desconto d2 = new DescontoValorMaiorVinte();
         Desconto d3 = new SemDesconto();
 
         d1.setProximo(d2);
