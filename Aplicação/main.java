@@ -9,7 +9,7 @@ public class main {
     public static void main(String[] args) throws Exception {
         List<Ingrediente> EstoqueDisponivel = MenuPrincipalFacade.AbastecerEstoque();
         Pedido result = MenuPrincipalFacade.MenuPrincipal(EstoqueDisponivel);
-        MenuPrincipalFacade.ImprimirNota(result);
+        if(result != null) MenuPrincipalFacade.ImprimirNota(result);
         System.out.print("Obrigado e Volte Sempre!");
     }
 }

@@ -22,11 +22,12 @@ public class MenuPrincipalFacade {
         System.out.println("====================================");
         if(resposta == 1){
             Pedido criado = NovoPedido(estoque);
-            Thread.sleep(5000);
+            Thread.sleep(1000);
             criado.aplicaDesconto();
             criado.getEstado().Produzir(criado);
-            Thread.sleep(5000);
+            Thread.sleep(1000);
             criado.getEstado().Finalizar(criado);
+            Thread.sleep(1000);
             return criado;
         }
         return null;
